@@ -1,0 +1,30 @@
+<div class="col-md-3 offset-md-4">
+  <h2 class="text-center">Login</h2>
+
+  <div class="text-center">
+    <img src="https://cdn.dribbble.com/users/29574/screenshots/4826855/media/eed56dc346687c0386b77e431381a9ee.png?compress=1&resize=310x310" 
+    class="rounded" alt="login_image">
+  </div><br>
+
+  <form [formGroup]="form">
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="username" placeholder="Username" #username>
+      <div *ngIf="form.get('username').touched && form.get('username').invalid">
+        <div *ngIf="form.get('username').errors.required" class="alert alert-danger">
+          Username is required</div>
+      </div><br>
+
+      <input type="password" class="form-control" formControlName="password" placeholder="Password" #password>
+      <div *ngIf="form.get('password').touched && form.get('password').invalid">
+        <div *ngIf="form.get('password').errors.required" class="alert alert-danger">
+          Password is required</div>
+      </div>
+
+      <br>
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Login" (click)="check(username.value,password.value)">
+      </div>
+      <a href="/signup" >New User, Please SignUp First!</a>
+    </div>
+  </form>
+</div>
